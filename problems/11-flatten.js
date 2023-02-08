@@ -14,8 +14,22 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 
 function flatten(arr) {
   // Your code here
+  let newarr = []
+ for (let i=0;i<arr.length;i++){
+  let el = arr[i]
+  if (Array.isArray(el)){
+    let array = flatten(el)
+    newarr.push(...array)
+  }else{
+    newarr.push(el)
+  }
+
+ }
+ return newarr
 }
-  
+console.log(flatten([])); // []
+console.log(flatten([1, 2])); // [1, 2]
+console.log(flatten([1, [2, [3]]])); // [1, 2, 3]
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = flatten;
   
